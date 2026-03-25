@@ -215,7 +215,7 @@ void
 signal_event(int fd, short events, void *data)
 {
 	restore_termios();
-	printf("\r\n[SIG%s]\n", sys_siglist[fd]);
+	printf("\r\n[SIG%s]\n", strsignal(fd));
 
 	exit(0);
 }

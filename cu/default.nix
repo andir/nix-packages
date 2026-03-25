@@ -6,7 +6,7 @@ pkgs.stdenv.mkDerivation {
   buildInputs = with pkgs; [ libevent libbsd ];
 
   buildPhase = ''
-    for file in *.c; do cc -c $file -o $file.o; done
+    for file in *.c; do cc -D_DEFAULT_SOURCE=1 -c $file -o $file.o; done
     cc -levent -lbsd *.o -o cu
   '';
 
